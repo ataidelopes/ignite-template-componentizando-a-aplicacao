@@ -3,7 +3,7 @@ import { GenreResponseProps } from '../models/GenreResponseProps';
 import { MovieCard } from './MovieCard';
 import { api } from '../services/api';
 
-export interface MovieProps {
+interface MovieProps {
   imdbID: string;
   Title: string;
   Poster: string;
@@ -14,7 +14,11 @@ export interface MovieProps {
   Runtime: string;
 }
 
-export function Content(selectedGenreId : number) {
+interface ContentProps {
+  selectedGenreId: number;
+}
+
+export function Content({ selectedGenreId } : ContentProps) {
 
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
